@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
 
-const twitterImages = [
-  'https://pbs.twimg.com/media/Cs0lwwhXgAA51ZW.jpg',
-  'https://pbs.twimg.com/media/Csh059OWcAEbCA3.jpg',
-  'https://pbs.twimg.com/media/CsdMvl1WIAAdape.jpg'
-];
-
 export default class ImageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: twitterImages
+      images: []
     }
+  }
+
+  componentDidMount() {
+    fetch('/api/search')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        const images = json.statuses
+          .filter((result) => {
+            return result.entities.media;
+          })
+          .map((result, index) => {
+            return result.entities.media[0].media_url;
+          })
+
+        this.setState({images});
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render() {
