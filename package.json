@@ -1,0 +1,24 @@
+{
+  "name": "twitter-image-slider",
+  "version": "1.0.0",
+  "description": "Twitter Image Slider",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --progress --colors --watch"
+  },
+  "author": "Stacy Huang",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  }
+}
