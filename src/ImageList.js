@@ -10,17 +10,11 @@ export default class ImageList extends Component {
 
   componentDidMount() {
     fetch('/api/search')
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((json) => {
         const images = json.statuses
-          .filter((result) => {
-            return result.entities.media;
-          })
-          .map((result, index) => {
-            return result.entities.media[0].media_url;
-          })
+          .filter((result) => result.entities.media)
+          .map((result, index) => result.entities.media[0].media_url)
 
         this.setState({images});
       })
