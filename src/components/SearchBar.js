@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchTweet } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {searchTerm: ''};
@@ -12,7 +14,7 @@ export default class SearchBar extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.searchTerm);
+    this.props.dispatch(searchTweet(this.state.searchTerm));
     this.setState({searchTerm: ''});
   }
 
@@ -29,3 +31,5 @@ export default class SearchBar extends Component {
     )
   }
 }
+
+export default connect()(SearchBar);

@@ -10,7 +10,8 @@ const client = new Twitter({
 });
 
 router.get('/search', (req, res) => {
-  client.get('https://api.twitter.com/1.1/search/tweets.json', {q: '#everlane filter:images'}, (error, tweets, response) => {
+  let searchTerm = req.query.searchTerm;
+  client.get('https://api.twitter.com/1.1/search/tweets.json', {q: `${searchTerm} filter:images`}, (error, tweets, response) => {
     res.send(tweets);
   });
 });
