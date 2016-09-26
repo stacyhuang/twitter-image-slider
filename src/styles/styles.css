@@ -1,0 +1,26 @@
+body {
+  background-color: #E7E3E4;
+}
+
+.searchBar {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.searchBar input {
+  width: 530px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.image-list {
+  margin: 0 auto;
+  padding: 40px;
+  width: 550px;
+  color: #333;
+}
+
+.image-list img {
+  width: 550px;
+  height: 450px;
+}

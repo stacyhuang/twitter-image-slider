@@ -1,23 +1,17 @@
-export function searchTweet(searchTerm) {
-  return (dispatch) => {
-    var term = encodeURIComponent(searchTerm);
-    fetch(`/api/search?searchTerm=${term}`)
-      .then((res) => res.json())
-      .then((json) => {
-        const images = json.statuses
-          .filter((result) => result.entities.media)
-          .map((result, index) => result.entities.media[0].media_url)
+export const receiveTweets = images => ({
+  type: 'RECEIVE_TWEETS',
+  images: images
+})
 
-        dispatch({
-          type: 'SEARCH_IMAGE_SUCCESS',
-          images: images
-        });
-      })
-      .catch((err) => {
-        dispatch({
-          type: 'SEARCH_IMAGE_FAILURE',
-          error: err
-        });
-      })
-  }
-};
+export const fetchTweets = searchTerm => dispatch => {
+  const term = encodeURIComponent(searchTerm)
+  return fetch(`/api/search?searchTerm=${term}`)
+    .then((res) => res.json())
+    .then((json) => {
+      const images = json.statuses
+        .filter((result) => result.entities.media)
+        .map((result, index) => result.entities.media[0].media_url)
+
+      dispatch(receiveTweets(images))
+    })
+}
