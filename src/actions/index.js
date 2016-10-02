@@ -1,5 +1,7 @@
+import * as types from '../constants/ActionTypes'
+
 export const receiveTweets = images => ({
-  type: 'RECEIVE_TWEETS',
+  type: types.RECEIVE_TWEETS,
   images: images
 })
 
