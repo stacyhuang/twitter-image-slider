@@ -4,10 +4,11 @@
   "description": "Twitter Image Slider",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon index.js",
     "build": "webpack --progress --colors --progress",
+    "start": "node index.js",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "postinstall": "npm run build"
   },
   "author": "Stacy Huang",
   "license": "MIT",
@@ -23,9 +24,8 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "slick-carousel": "^1.6.0",
-    "twitter": "^1.4.0"
-  },
-  "devDependencies": {
+    "twitter": "^1.4.0",
+    "webpack": "^1.13.2",
     "babel-core": "^6.14.0",
     "babel-jest": "^15.0.0",
     "babel-loader": "^6.2.5",
@@ -33,13 +33,14 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.25.0",
-    "fetch-mock": "^5.1.5",
     "html-webpack-plugin": "^2.22.0",
-    "jest": "^15.1.1",
     "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1"
+  },
+  "devDependencies": {
+    "fetch-mock": "^5.1.5",
+    "jest": "^15.1.1",
     "react-addons-test-utils": "^15.3.2",
-    "redux-mock-store": "^1.2.1",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.2"
+    "redux-mock-store": "^1.2.1"
   }
 }
