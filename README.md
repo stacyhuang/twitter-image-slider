@@ -37,3 +37,9 @@ TWITTER_BEARER_TOKEN='eHZ6MWV2RlM0d0VFUFRHRUZQSEJvZzpMOHFxOVBaeVJnNmllS0dFS2hab2
 ```sh
 npm run test
 ```
+
+## Future Improvements
+* Fetch more images on last slide
+* Filter out identical images
+* Better test coverage
+
